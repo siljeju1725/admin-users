@@ -1,11 +1,22 @@
 <mat-toolbar>
-  <span>Modulo de Administracion</span>
-  <span class="example-spacer"></span>
+  <span>Administracion de Usuario</span>
+
+</mat-toolbar>
+<mat-toolbar>
+  <mat-form-field>
+    <mat-label>Seleccione un Departamento</mat-label>
+    <mat-select>
+        <mat-option></mat-option>
+    </mat-select>
+
+  </mat-form-field>
+ <span class="example-spacer"></span>
   <button mat-raised-button (click)="addEditUserForm()">
    Crear nuevo ususario
   </button>
 </mat-toolbar>
 
+<mat-divider></mat-divider>
 
 <div class ="main-body">
 <div class="table-container">

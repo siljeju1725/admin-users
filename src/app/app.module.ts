@@ -19,6 +19,7 @@ import {MatTableModule} from '@angular/material/table';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatSortModule } from '@angular/material/sort';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
+import {MatDividerModule} from '@angular/material/divider';
 
 
 @NgModule({
@@ -44,6 +45,7 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
     MatPaginatorModule,
     MatSortModule,
     MatSnackBarModule,
+    MatDividerModule,
   ],
   providers: [
     provideClientHydration()

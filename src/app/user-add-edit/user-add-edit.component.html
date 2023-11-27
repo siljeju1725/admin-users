@@ -1,0 +1,54 @@
+<div mat-dialog-title>
+  <h1>Registar Usuario</h1>
+</div>
+<form [formGroup]="userForm" (ngSubmit)="onFormSubmit()">
+<div mat-dialog-content class="content">
+
+  <div class="row">
+    <mat-form-field appearance="outline">
+      <mat-label>Usuario</mat-label>
+      <input matInput type="text" formControlName ="usuario">
+    </mat-form-field>
+  </div>
+
+  <div class="row">
+    <mat-form-field appearance="outline">
+      <mat-label>Primer Nombre</mat-label>
+      <input matInput type="text" formControlName ="primerNombre">
+    </mat-form-field>
+    <mat-form-field appearance="outline">
+      <mat-label>Segundo Nombre</mat-label>
+      <input matInput type="text" formControlName ="segundoNombre">
+    </mat-form-field>
+  </div>
+
+  <div class="row">
+    <mat-form-field appearance="outline">
+      <mat-label>Primer Apellido</mat-label>
+      <input matInput type="text" formControlName="primerApellido">
+    </mat-form-field>
+    <mat-form-field appearance="outline">
+      <mat-label>Segundo Apellido</mat-label>
+      <input matInput type="text" formControlName="segundoApellido">
+    </mat-form-field>
+  </div>
+
+
+  <div class="row">
+    <mat-form-field appearance="outline">
+      <mat-label>Departamento</mat-label>
+      <input matInput type="text" formControlName="idDepartamento">
+    </mat-form-field>
+    <mat-form-field appearance="outline">
+      <mat-label>Cargo</mat-label>
+      <input matInput type="text" formControlName="idCargo">
+    </mat-form-field>
+  </div>
+
+</div>
+<div mat-dialog-actions class="action">
+  <button mat-raised-button type="button" [mat-dialog-close]="false">Cancel</button>
+  <button mat-raised-button type="submit">{{data ? 'Update': 'Save'}}</button>
+
+</div>
+</form>

@@ -8,6 +8,9 @@ import {MatTableDataSource, MatTableModule} from '@angular/material/table';
 import {MatDividerModule} from '@angular/material/divider';
 import {MatInputModule} from '@angular/material/input';
 import {MatFormFieldModule} from '@angular/material/form-field';
+import { CargoService } from './services/cargo.service';
+import {MatSelectModule} from '@angular/material/select';
+import {FormsModule, FormControl, Validators} from '@angular/forms';
 
 @Component({
   selector: 'app-root',
@@ -16,6 +19,8 @@ import {MatFormFieldModule} from '@angular/material/form-field';
 })
 export class AppComponent implements OnInit {
   title = 'admin-users';
+  cargosControl = new FormControl<any | null>(null, Validators.required);
+  departamentoControl = new FormControl<any | null>(null, Validators.required);
 
   displayedColumns: string[] = [
 
@@ -26,15 +31,19 @@ export class AppComponent implements OnInit {
     'acciones'
    ];
   dataSource!: MatTableDataSource<any>;
+  cargos: any[] = [];
+  departamentos: any[] = [];
+
 
   @ViewChild(MatPaginator) paginator!: MatPaginator;
   @ViewChild(MatSort) sort!: MatSort;
 
   constructor(
-    private _dialog: MatDialog, private _userService: UsersService) {}
+    private _dialog: MatDialog, private _userService: UsersService, private _cargoService: CargoService) {}
 
     ngOnInit(): void {
         this.getUserList();
+        this.getCargoList();
     }
 
 
@@ -62,6 +71,32 @@ export class AppComponent implements OnInit {
         }
       })
     }
+
+
+    getCargoList(){
+      this._cargoService.getCargo().subscribe({
+        next: (res) => {
+          this.cargos =res;
+
+
+        },
+        error: (err) => {
+          console.log(err)
+        }
+      })
+    }
+
+    getDepartamentoList(){
+      this._cargoService.getDepartamento().subscribe({
+        next: (res) => {
+          this.departamentos =res;
+        },
+        error: (err) => {
+          console.log(err)
+        }
+      })
+    }
+
 
     deleteUser(id:number){
       this._userService.deleteUser(id).subscribe({

@@ -20,12 +20,14 @@ import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatSortModule } from '@angular/material/sort';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import {MatDividerModule} from '@angular/material/divider';
+import { CarAddEditComponent } from './car-add-edit/car-add-edit.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    UserAddEditComponent
+    UserAddEditComponent,
+    CarAddEditComponent
   ],
   imports: [
     BrowserModule,
